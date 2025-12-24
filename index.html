@@ -190,12 +190,44 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-    const books = [
-      { name: "Advanced Engineering Mathematics", author: "Erwin Kreyszig", isbn: "9788126515370", subject: "Mathematics" },
-      { name: "Quantum Mechanics", author: "David J. Griffiths", isbn: "9781107189638", subject: "Physics" },
-      { name: "Introduction to Algorithms", author: "Thomas H. Cormen", isbn: "9780262033848", subject: "Computer Science" }
-    ];
+   const books = [
 
+  /* ===== MATHEMATICS ===== */
+  { name: "Advanced Engineering Mathematics", author: "Erwin Kreyszig", isbn: "9788126515370", subject: "Mathematics" },
+  { name: "Higher Engineering Mathematics", author: "B.S. Grewal", isbn: "9788193328491", subject: "Mathematics" },
+  { name: "Linear Algebra and Its Applications", author: "Gilbert Strang", isbn: "9780030105678", subject: "Mathematics" },
+  { name: "Calculus", author: "James Stewart", isbn: "9788131516880", subject: "Mathematics" },
+  { name: "Complex Analysis", author: "Lars Ahlfors", isbn: "9780070006577", subject: "Mathematics" },
+
+  /* ===== PHYSICS ===== */
+  { name: "Quantum Mechanics", author: "David J. Griffiths", isbn: "9781107189638", subject: "Physics" },
+  { name: "Introduction to Electrodynamics", author: "David J. Griffiths", isbn: "9788120306974", subject: "Physics" },
+  { name: "Concepts of Modern Physics", author: "Arthur Beiser", isbn: "9780070156128", subject: "Physics" },
+  { name: "Classical Mechanics", author: "Herbert Goldstein", isbn: "9780201029185", subject: "Physics" },
+  { name: "Thermal Physics", author: "Charles Kittel", isbn: "9788120308978", subject: "Physics" },
+
+  /* ===== COMPUTER SCIENCE ===== */
+  { name: "Introduction to Algorithms", author: "Thomas H. Cormen", isbn: "9780262033848", subject: "Computer Science" },
+  { name: "Operating System Concepts", author: "Abraham Silberschatz", isbn: "9781118063330", subject: "Computer Science" },
+  { name: "Computer Networks", author: "Andrew S. Tanenbaum", isbn: "9780132126953", subject: "Computer Science" },
+  { name: "Database System Concepts", author: "Henry F. Korth", isbn: "9780073523323", subject: "Computer Science" },
+  { name: "Clean Code", author: "Robert C. Martin", isbn: "9780132350884", subject: "Computer Science" },
+
+  /* ===== ELECTRICAL ENGINEERING ===== */
+  { name: "Power Electronics", author: "M.H. Rashid", isbn: "9780133125900", subject: "Electrical Engineering" },
+  { name: "Electrical Machinery", author: "P.S. Bimbhra", isbn: "9788174092320", subject: "Electrical Engineering" },
+  { name: "Control Systems Engineering", author: "Norman S. Nise", isbn: "9780470547564", subject: "Electrical Engineering" },
+  { name: "Signals and Systems", author: "Alan V. Oppenheim", isbn: "9780138147570", subject: "Electrical Engineering" },
+  { name: "Power System Analysis", author: "Hadi Saadat", isbn: "9780070612938", subject: "Electrical Engineering" },
+
+  /* ===== INFORMATION SCIENCE ===== */
+  { name: "Information Theory", author: "Thomas M. Cover", isbn: "9780471241959", subject: "Information Science" },
+  { name: "Digital Image Processing", author: "Rafael C. Gonzalez", isbn: "9780131687288", subject: "Information Science" },
+  { name: "Pattern Recognition", author: "Sergios Theodoridis", isbn: "9780126858752", subject: "Information Science" },
+  { name: "Data Mining Concepts and Techniques", author: "Jiawei Han", isbn: "9789380931913", subject: "Information Science" },
+  { name: "Artificial Intelligence", author: "Stuart Russell", isbn: "9780136042594", subject: "Information Science" }
+
+];
     let currentSubject = "all";
 
     function renderBooks(list) {
@@ -243,3 +275,4 @@
 
 </body>
 </html>
+
