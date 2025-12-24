@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Narendra Book Agency</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
@@ -11,41 +11,6 @@
       font-family: Arial, sans-serif;
       background-color: #f4f6f8;
     }
-    /* ===== MOBILE CARD VIEW ===== */
-.mobile-cards {
-  display: none;
-  padding: 15px;
-  gap: 15px;
-}
-
-.book-card {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.book-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-  color: #2c7be5;
-}
-
-.book-card p {
-  margin: 4px 0;
-  font-size: 14px;
-}
-
-/* Switch views on mobile */
-@media (max-width: 768px) {
-  table {
-    display: none;
-  }
-
-  .mobile-cards {
-    display: grid;
-  }
-}
 
     /* ===== TOP BAR ===== */
     .topbar {
@@ -63,7 +28,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
     }
 
@@ -82,14 +47,10 @@
       font-weight: 500;
     }
 
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
     .search-box input {
       padding: 10px 15px;
-      font-size: 15px;
-      width: 280px;
+      font-size: 14px;
+      width: 260px;
       border-radius: 20px;
       border: none;
       outline: none;
@@ -98,25 +59,25 @@
     /* ===== SUBJECT CARDS ===== */
     .subjects {
       display: flex;
-      justify-content: center;
       gap: 20px;
-      margin: 30px;
+      padding: 30px;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
     .subject-card {
       background: white;
       width: 160px;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
+      transition: transform 0.2s;
     }
 
     .subject-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-4px);
     }
 
     .subject-card img {
@@ -126,20 +87,17 @@
     }
 
     .subject-card p {
-      padding: 10px;
+      margin: 10px;
       font-weight: bold;
-      margin: 0;
     }
 
-    /* ===== TABLE ===== */
+    /* ===== TABLE (DESKTOP) ===== */
     table {
-      width: 90%;
+      width: 95%;
       margin: auto;
       border-collapse: collapse;
       background: white;
     }
-   <!-- ===== MOBILE BOOK CARDS ===== -->
-   <div id="mobileCards" class="mobile-cards"></div>
 
     th, td {
       padding: 12px;
@@ -152,6 +110,31 @@
       color: white;
     }
 
+    /* ===== MOBILE CARDS ===== */
+    .mobile-cards {
+      display: none;
+      padding: 15px;
+      gap: 15px;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .book-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .book-card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       text-align: center;
@@ -160,21 +143,18 @@
       color: #555;
     }
 
-    /* ===== MOBILE ===== */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .topbar {
-        flex-direction: column;
-        text-align: center;
+      table {
+        display: none;
+      }
+
+      .mobile-cards {
+        display: grid;
       }
 
       .search-box input {
         width: 100%;
-        max-width: 320px;
-      }
-
-      table {
-        display: block;
-        overflow-x: auto;
       }
     }
   </style>
@@ -185,8 +165,8 @@
   <!-- ===== TOP BAR ===== -->
   <div class="topbar">
     <div class="logo">
-      <img src="logo.png" alt="Logo">
-      <span>Narendra Book Agency</span>
+      <img src="logo.png" alt="Logo" />
+      Narendra Book Agency
     </div>
 
     <div class="nav-links">
@@ -195,21 +175,29 @@
     </div>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search by Book / Author / ISBN..." onkeyup="applyFilters()">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by Book / Author / ISBN..."
+        onkeyup="applyFilters()"
+      />
     </div>
   </div>
 
-  <!-- ===== SUBJECT CARDS ===== -->
+  <!-- ===== SUBJECT FILTER ===== -->
   <div class="subjects">
     <div class="subject-card" onclick="filterSubject('all')"><p>All Books</p></div>
     <div class="subject-card" onclick="filterSubject('mathematics')"><img src="maths.jpg"><p>Mathematics</p></div>
     <div class="subject-card" onclick="filterSubject('physics')"><img src="physics.jpg"><p>Physics</p></div>
     <div class="subject-card" onclick="filterSubject('computer science')"><img src="cs.jpg"><p>Computer Science</p></div>
-    <div class="subject-card" onclick="filterSubject('electrical engineering')"><img src="EENG.jpg"><p>Electrical Engineering</p></div>
-    <div class="subject-card" onclick="filterSubject('information science')"><img src="INF.jpg"><p>Information Science</p></div>
+    <div class="subject-card" onclick="filterSubject('electrical engineering')"><p>Electrical Engineering</p></div>
+    <div class="subject-card" onclick="filterSubject('information science')"><p>Information Science</p></div>
   </div>
 
-  <!-- ===== BOOK TABLE ===== -->
+  <!-- ===== MOBILE CARDS ===== -->
+  <div id="mobileCards" class="mobile-cards"></div>
+
+  <!-- ===== TABLE ===== -->
   <table>
     <thead>
       <tr>
@@ -229,97 +217,73 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-   const books = [
+    const books = [
+      { name: "Advanced Engineering Mathematics", author: "Erwin Kreyszig", isbn: "9788126515370", subject: "Mathematics" },
+      { name: "Quantum Mechanics", author: "David J. Griffiths", isbn: "9781107189638", subject: "Physics" },
+      { name: "Introduction to Algorithms", author: "Thomas H. Cormen", isbn: "9780262033848", subject: "Computer Science" },
+      { name: "Power Electronics", author: "M.H. Rashid", isbn: "9780133125900", subject: "Electrical Engineering" },
+      { name: "Information Systems", author: "Laudon", isbn: "9781292403280", subject: "Information Science" }
+    ];
 
-  /* ===== MATHEMATICS ===== */
-  { name: "Advanced Engineering Mathematics", author: "Erwin Kreyszig", isbn: "9788126515370", subject: "Mathematics" },
-  { name: "Higher Engineering Mathematics", author: "B.S. Grewal", isbn: "9788193328491", subject: "Mathematics" },
-  { name: "Linear Algebra and Its Applications", author: "Gilbert Strang", isbn: "9780030105678", subject: "Mathematics" },
-  { name: "Calculus", author: "James Stewart", isbn: "9788131516880", subject: "Mathematics" },
-  { name: "Complex Analysis", author: "Lars Ahlfors", isbn: "9780070006577", subject: "Mathematics" },
-
-  /* ===== PHYSICS ===== */
-  { name: "Quantum Mechanics", author: "David J. Griffiths", isbn: "9781107189638", subject: "Physics" },
-  { name: "Introduction to Electrodynamics", author: "David J. Griffiths", isbn: "9788120306974", subject: "Physics" },
-  { name: "Concepts of Modern Physics", author: "Arthur Beiser", isbn: "9780070156128", subject: "Physics" },
-  { name: "Classical Mechanics", author: "Herbert Goldstein", isbn: "9780201029185", subject: "Physics" },
-  { name: "Thermal Physics", author: "Charles Kittel", isbn: "9788120308978", subject: "Physics" },
-
-  /* ===== COMPUTER SCIENCE ===== */
-  { name: "Introduction to Algorithms", author: "Thomas H. Cormen", isbn: "9780262033848", subject: "Computer Science" },
-  { name: "Operating System Concepts", author: "Abraham Silberschatz", isbn: "9781118063330", subject: "Computer Science" },
-  { name: "Computer Networks", author: "Andrew S. Tanenbaum", isbn: "9780132126953", subject: "Computer Science" },
-  { name: "Database System Concepts", author: "Henry F. Korth", isbn: "9780073523323", subject: "Computer Science" },
-  { name: "Clean Code", author: "Robert C. Martin", isbn: "9780132350884", subject: "Computer Science" },
-
-  /* ===== ELECTRICAL ENGINEERING ===== */
-  { name: "Power Electronics", author: "M.H. Rashid", isbn: "9780133125900", subject: "Electrical Engineering" },
-  { name: "Electrical Machinery", author: "P.S. Bimbhra", isbn: "9788174092320", subject: "Electrical Engineering" },
-  { name: "Control Systems Engineering", author: "Norman S. Nise", isbn: "9780470547564", subject: "Electrical Engineering" },
-  { name: "Signals and Systems", author: "Alan V. Oppenheim", isbn: "9780138147570", subject: "Electrical Engineering" },
-  { name: "Power System Analysis", author: "Hadi Saadat", isbn: "9780070612938", subject: "Electrical Engineering" },
-
-  /* ===== INFORMATION SCIENCE ===== */
-  { name: "Information Theory", author: "Thomas M. Cover", isbn: "9780471241959", subject: "Information Science" },
-  { name: "Digital Image Processing", author: "Rafael C. Gonzalez", isbn: "9780131687288", subject: "Information Science" },
-  { name: "Pattern Recognition", author: "Sergios Theodoridis", isbn: "9780126858752", subject: "Information Science" },
-  { name: "Data Mining Concepts and Techniques", author: "Jiawei Han", isbn: "9789380931913", subject: "Information Science" },
-  { name: "Artificial Intelligence", author: "Stuart Russell", isbn: "9780136042594", subject: "Information Science" }
-
-];
     let currentSubject = "all";
 
-    function renderBooks(list) {
+    function renderTable(list) {
       const tbody = document.getElementById("bookTableBody");
       tbody.innerHTML = "";
-
-      list.forEach(book => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${book.name}</td>
-          <td>${book.author}</td>
-          <td>${book.isbn}</td>
-          <td>${book.subject}</td>
+      list.forEach(b => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${b.name}</td>
+          <td>${b.author}</td>
+          <td>${b.isbn}</td>
+          <td>${b.subject}</td>
         `;
-        tbody.appendChild(row);
+        tbody.appendChild(tr);
       });
     }
 
-    function renderBooks(list) {
-  const tbody = document.getElementById("bookTableBody");
-  const mobileCards = document.getElementById("mobileCards");
+    function renderMobileCards(list) {
+      const container = document.getElementById("mobileCards");
+      container.innerHTML = "";
+      list.forEach(b => {
+        const div = document.createElement("div");
+        div.className = "book-card";
+        div.innerHTML = `
+          <h3>${b.name}</h3>
+          <p><strong>Author:</strong> ${b.author}</p>
+          <p><strong>ISBN:</strong> ${b.isbn}</p>
+          <p><strong>Subject:</strong> ${b.subject}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
 
-  // Clear old content
-  tbody.innerHTML = "";
-  mobileCards.innerHTML = "";
+    function applyFilters() {
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = books.filter(b => {
+        const matchSearch =
+          b.name.toLowerCase().includes(search) ||
+          b.author.toLowerCase().includes(search) ||
+          b.isbn.includes(search);
 
-  list.forEach(book => {
-    /* ===== DESKTOP TABLE ===== */
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${book.name}</td>
-      <td>${book.author}</td>
-      <td>${book.isbn}</td>
-      <td>${book.subject}</td>
-    `;
-    tbody.appendChild(row);
+        const matchSubject =
+          currentSubject === "all" ||
+          b.subject.toLowerCase() === currentSubject;
 
-    /* ===== MOBILE CARD ===== */
-    const card = document.createElement("div");
-    card.className = "book-card";
-    card.innerHTML = `
-      <h3>${book.name}</h3>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>ISBN:</strong> ${book.isbn}</p>
-      <p><strong>Subject:</strong> ${book.subject}</p>
-    `;
-    mobileCards.appendChild(card);
-  });
-}
+        return matchSearch && matchSubject;
+      });
 
+      renderTable(filtered);
+      renderMobileCards(filtered);
+    }
 
+    function filterSubject(subject) {
+      currentSubject = subject;
+      applyFilters();
+    }
 
+    applyFilters();
+  </script>
 
-
-
-
+</body>
+</html>
