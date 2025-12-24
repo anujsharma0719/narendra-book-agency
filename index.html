@@ -217,6 +217,44 @@
   <tbody id="bookTableBody">
   </tbody>
 </table>
+const books = [
+  {
+    name: "Advanced Engineering Mathematics",
+    author: "Erwin Kreyszig",
+    isbn: "9788126515370",
+    subject: "Mathematics"
+  },
+  {
+    name: "Quantum Mechanics",
+    author: "David J. Griffiths",
+    isbn: "9781107189638",
+    subject: "Physics"
+  },
+  {
+    name: "Introduction to Algorithms",
+    author: "Thomas H. Cormen",
+    isbn: "9780262033848",
+    subject: "Computer Science"
+  }
+];
+
+function renderBooks(list = books) {
+  const tbody = document.getElementById("bookTableBody");
+  tbody.innerHTML = "";
+
+  list.forEach(book => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${book.name}</td>
+      <td>${book.author}</td>
+      <td>${book.isbn}</td>
+      <td>${book.subject}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+renderBooks();
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -254,6 +292,7 @@
 
 </body>
 </html>
+
 
 
 
